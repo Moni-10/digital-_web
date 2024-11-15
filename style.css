@@ -1,0 +1,1348 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+    /* Fixed padding bottom */
+    background-color: white;
+}
+
+.nav-header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.nav-header ul {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.nav-header ul li {
+    list-style: none;
+    font-size: 17px;
+    color: black;
+}
+
+.nav-menu li a {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    /* Adjust the gap here */
+    width: 100%;
+    height: 2px;
+    /* Thickness of the underline */
+    background-color: rgb(250, 29, 66);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-header ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-header img.logo {
+    height: 85px;
+    width: 115px;
+}
+
+.nav-header-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-header-button button {
+    border: none;
+    background-color: rgb(139, 47, 139);
+    padding: 8px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 10px;
+    color: white;
+}
+
+.nav-header-button .join-now {
+    background-color: goldenrod;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+
+/* Hide hamburger and close icon on larger screens */
+
+.hamburger,
+.close-icon {
+    display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-header ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 20;
+        background-color: white;
+        text-align: center;
+    }
+
+    .nav-header ul.show {
+        display: flex;
+    }
+
+    .nav-left {
+        gap: 0.5rem;
+
+        padding: 5px;
+    }
+
+
+    .nav-header-button {
+        position: relative;
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: rgb(230, 57, 86);
+
+        width: 40px;
+        margin-right: 1rem;
+        color: white;
+        border-radius: 50%;
+        height: 40px;
+
+    }
+
+    .close-icon {
+        display: none;
+        /* Hide close icon initially */
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background-color: rgb(230, 57, 86);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: white;
+        font-size: 28px;
+        margin-right: 1rem;
+    }
+
+
+    /* Show close icon when menu is open */
+    .nav-header ul.show+.close-icon {
+        display: block;
+    }
+
+    .nav-header-button button {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-toggler {
+        margin-right: auto;
+    }
+
+    .navbar-brand {
+        margin-left: 10px;
+    }
+
+    .d-lg-none {
+        margin-left: auto;
+    }
+}
+
+/* Basic styling for the nav */
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-menu li {
+    position: relative;
+    /* Required for absolute positioning of the card */
+}
+
+.service-card {
+    display: none;
+    /* Hide by default */
+    position: absolute;
+    top: 100%;
+    /* Align the card right below the link */
+    left: 50%;
+    /* Start positioning from the center */
+    transform: translateX(-70%);
+    /* Shift the card back by 50% of its width to center it */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* Ensure the card appears above other content */
+}
+
+.option-card-first {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-card-first img {
+    width: 150px;
+    height: 80px;
+}
+
+.option-card {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.services-item:hover .service-card {
+    display: block;
+    /* Show the card on hover */
+}
+
+.body-main {
+    display: flex;
+    justify-content: space-between;
+
+
+
+}
+
+body {
+    background-image: url('Images/header-bg1.png');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.body-main-text {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: 10rem;
+
+}
+
+/* .body-main-text h7{
+    font-size: 15px;
+    font-weight: 400;
+    color: gray;
+    
+} */
+.body-main-button {
+    display: flex;
+    gap: 1rem;
+}
+
+.body-main-button button {
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 25px;
+    border: none;
+    padding: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: white;
+    background-color: blueviolet;
+}
+
+.body-main-button button:hover {
+    color: blueviolet;
+    background-color: rgb(238, 233, 233);
+    border: 1px solid blueviolet;
+}
+
+.body-main-first-img {
+    margin-top: 3rem;
+    animation: moveUpDown 2s infinite;
+    /* Apply animation */
+    height: auto;
+    /* Ensure the height is auto for proper scaling */
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+        /* Adjust distance of movement */
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.body-main-img .second-img {
+    height: 500px;
+    /* background-image: url("https://img.freepik.com/free-vector/realistic-white-monochrome-background_23-2149023993.jpg?semt=ais_hybrid"); */
+}
+
+.body-main-img {
+    position: relative;
+    display: inline-block;
+    /* Ensures the container is only as wide as its content */
+}
+
+/* .header-img {
+    background-image: url('https://html.fleexstudio.com/seoc/assets/img/bg/header-bg1.png');
+} */
+@media (max-width: 600px) {
+
+    /* .body-main{
+    display: block;
+  } */
+    .body-main-text {
+        margin-top: 0;
+        font-size: 2rem;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .body-main-first-img {
+        display: none;
+    }
+
+    .body-main-img .first-img {
+        height: auto;
+        width: auto;
+    }
+}
+
+.pricing-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 1rem;
+    gap: 2rem;
+
+
+}
+
+.pricing-card-detels {
+    padding: 2rem;
+    color: rgb(14, 14, 59);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    background: linear-gradient(to right, rgb(161, 217, 240) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+
+}
+
+.pricing-card-detels:hover {
+    transform: translateY(20px);
+    background-position: left;
+
+
+}
+
+.pricing-header {
+    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.pricing-header h4 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgb(77, 191, 236);
+    border-bottom: 2px solid rgb(245, 57, 89);
+    /* Adjust the width and color as needed */
+    padding-bottom: 10px;
+}
+
+.pricing-card-detels .pricing-text {
+    color: rgb(5, 5, 63);
+    font-size: 14px;
+    line-height: 2.8;
+}
+
+.pricing-card-detels h5 {
+    font-size: 18px;
+
+
+}
+
+.pricing-card-detels h6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pricing-card-detels .main-pric {
+    font-size: 10px;
+
+}
+
+.pricing-card-detels button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(228, 39, 70);
+}
+
+
+
+.client-card-section {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.client-card {
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.client-card .client-number {
+    font-size: 5rem;
+    color: rgb(60, 181, 230);
+    font-weight: 200;
+}
+
+.client-card .client-name {
+    font-size: 18px;
+    color: #223;
+    font-weight: 500;
+}
+
+.client {
+    margin-bottom: 2rem;
+
+}
+
+.partner-flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.partner-flex img {
+    width: 250px;
+}
+
+.Partners h3 {
+    text-align: center;
+    color: rgb(8, 8, 66);
+    font-weight: 700;
+    padding-top: 2rem;
+
+}
+
+.Partners {
+    background-color: rgb(221, 235, 235);
+}
+
+.provide-better-flex .flex-first-img {
+    width: 450px;
+    height: 450px;
+    animation-delay: 0.5s;
+
+}
+
+.provide-better-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.provide-better-text-pg {
+    font-size: 15px;
+    color: black;
+
+
+}
+
+.provide-better-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.provide-better-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.provide-better-card {
+    display: flex;
+    gap: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition-delay: 1s;
+
+}
+
+
+
+.provide-better-card h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.provide-better-card h4 {
+    font-size: 15px;
+
+}
+
+.header-img-card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+
+@keyframes moveup {
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+.header-card-img {
+    width: 50%;
+}
+
+.header-card-text {
+    width: 50%;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+
+.header-card-text h7 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.header-card-text h6 {
+    font-size: 17px;
+    color: black;
+    font-weight: 300;
+}
+
+
+.header-card-img .img-first {
+    margin-left: 2rem;
+}
+
+.header-text {
+    display: flex;
+    position: relative;
+    /* Establishes a positioning context for child elements */
+}
+
+.image-container {
+    position: relative;
+    /* This is needed for positioning the second image */
+    display: inline-block;
+    /* Keeps the images together */
+}
+
+.first-img-img {
+    display: block;
+    /* Remove extra space below the image */
+}
+
+.second-img-container {
+    position: absolute;
+    top: 57%;
+    right: 30%;
+    width: 300px;
+    height: 500px;
+
+}
+
+.second-img-img {
+    display: block;
+    /* Remove extra space below the image */
+    width: 100%;
+    /* Ensures the image scales to fit the container */
+    height: auto;
+    /* Maintains aspect ratio */
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+        /* Adjust translateX distance */
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+        /* Adjust translateX distance */
+    }
+}
+
+
+.second-img {
+    position: absolute;
+    top: 0;
+
+    left: 20%;
+
+    width: 300px;
+
+    height: auto;
+    /* Keeps the aspect ratio of the second image */
+}
+
+.body-main-img .first-img {
+    height: 550px;
+    width: 550px;
+}
+
+.thired-img {
+    z-index: 20px;
+    position: absolute;
+    top: 10px;
+    left: 53%;
+    height: auto;
+}
+
+.fourth-img {
+
+    position: absolute;
+    top: 50%;
+    left: -14px;
+    height: auto;
+}
+
+.six-img {
+    width: 80px;
+    position: absolute;
+    top: 10%;
+    left: -33px;
+    height: auto;
+    animation: moveUpDown 2s infinite;
+
+}
+
+.eight-img {
+    position: absolute;
+    top: 61%;
+    left: -6rem;
+    height: auto;
+    animation: moveLeftRight 2s infinite;
+
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.seven-img {
+    position: absolute;
+    top: 51%;
+    left: -14px;
+    height: auto;
+    z-index: 20;
+}
+
+.courses-header {
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.courses-card {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.courses-card-text {
+    background-color: pink;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+}
+
+.courses-card-text:hover {
+    background-color: rgb(107, 204, 243);
+}
+
+.courses-card-text.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+.courses-card-text:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.courses-card-text:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.courses-card-text:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.courses-card-text:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.courses-card-text:nth-child(5) {
+    transition-delay: 0.10s;
+}
+
+.courses-card-text:nth-child(6) {
+    transition-delay: 0.12s;
+}
+
+
+
+.courses-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    padding: 2rem;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    width: 350px;
+    cursor: pointer;
+}
+
+
+.courses-card-img {
+    transition: transform 0.5s ease;
+    margin-bottom: 2rem;
+}
+
+.courses-card-text:hover .courses-card-img {
+    transform: scaleX(-1);
+}
+
+.courses-card-text h3 {
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+}
+
+.courses-main-text {
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.courses-header-text {
+    font-size: 2rem;
+    width: 40%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.courses-header-left-left img {
+    display: block;
+    /* Ensures that the images are treated as block elements */
+    margin: 0 auto;
+    /* Centers the images horizontally */
+    animation: rotate 3s linear infinite;
+    /* Applies the rotation animation */
+}
+
+.courses-header-right img {
+    display: block;
+    /* Ensures that the images are treated as block elements */
+    margin: 0 auto;
+    /* Centers the images horizontally */
+    animation: rotate 3s linear infinite;
+    /* Applies the rotation animation */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.courses-header-left-left {
+    margin-top: 5rem;
+}
+
+.benefits h5 {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+}
+
+.benefits-card-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: center;
+}
+
+.benefits-card-card img {
+    width: 500px;
+    padding-left: 2rem;
+    padding-top: 2rem;
+
+}
+
+.benefits-card-card-text {
+    width: 40%;
+}
+
+.reviews {
+    background-color: rgb(169, 221, 241);
+    padding: 2rem;
+
+}
+
+.reviews-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(10, 8, 8);
+
+}
+
+.reviews-card {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.reviews-card-itmes img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: none;
+
+}
+
+.reviews-card-itmes {
+    display: flex;
+    gap: 2rem;
+    border-radius: 10px;
+
+}
+
+.wrapper {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.card {
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28, -0.03, 0, .99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+}
+
+.card>.row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card>.row>.icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px;
+}
+
+.card>.row>.description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+}
+
+.description h4 {
+    text-transform: uppercase;
+}
+
+input {
+    display: none;
+}
+
+input:checked+label {
+    width: 600px;
+}
+
+input:checked+label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.card[for='c1'] {
+    background-image: url(https://d3mxyc1jd5u3wg.cloudfront.net/eyJrZXkiOiIzNjMzODUvZGRhNWI4ZDctMzhjOC00YjNkLTk5OTEtZjAwZWY0OTA5OTU0L2NjMzI2NDljLThkMDUtNGY5OS1hYmJhLTZiMjA0OTY0OGE1ZS5wbmciLCJidWNrZXQiOiJ3aXJlc3RvY2staW1hZ2UtZ2VuZXJhdG9yLWN1c3RvbS1zdHlsZXMtcHJvZHVjdGlvbiIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NTEyLCJoZWlnaHQiOjUxMiwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50IjpmYWxzZX0sImpwZWciOnsicXVhbGl0eSI6ODB9fX0=?signature=706c6ece0cd594cd81511cc83b5288055327f8ef8f61a2ebbd9134cb388909f8);
+}
+
+.card[for='c2'] {
+    background-image: url(https://d3mxyc1jd5u3wg.cloudfront.net/eyJrZXkiOiIzMDk0Mi85MzM3ZjFjZC0yNGVkLTRjZjYtYmM1MC02ODFhODNjNjVkZWQvNTNjMTJjZDYtOGViZC00ODY3LWJkNjYtYTQyOWQ2ZWVjODgwLmpwZWciLCJidWNrZXQiOiJ3aXJlc3RvY2staW1hZ2UtZ2VuZXJhdG9yLWN1c3RvbS1zdHlsZXMtcHJvZHVjdGlvbiIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NTEyLCJoZWlnaHQiOjUxMiwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50IjpmYWxzZX0sImpwZWciOnsicXVhbGl0eSI6ODB9fX0=?signature=7a89fae280d24629cda6236af9c84944cf946aebe2f9826472b640233c230ef8);
+}
+
+.card[for='c3'] {
+    background-image: url(https://d3mxyc1jd5u3wg.cloudfront.net/eyJrZXkiOiIzNjMzODUvZDZhMzYzNDktMzc4OS00YzFkLTg3YWItODdjMGQ3NTE3MTAzLzliYWViM2RmLWM0M2UtNGUyMC1iNWFjLWI1MWUzNjA3MTY5NS5qcGVnIiwiYnVja2V0Ijoid2lyZXN0b2NrLWltYWdlLWdlbmVyYXRvci1jdXN0b20tc3R5bGVzLXByb2R1Y3Rpb24iLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjUxMiwiaGVpZ2h0Ijo1MTIsImZpdCI6Imluc2lkZSIsIndpdGhvdXRFbmxhcmdlbWVudCI6ZmFsc2V9LCJqcGVnIjp7InF1YWxpdHkiOjgwfX19?signature=61e673550c71c9a306b17da0ad0b3b3ad1315025c56824c382edd837d7771b0f);
+}
+
+.card[for='c4'] {
+    background-image: url(https://d3mxyc1jd5u3wg.cloudfront.net/eyJrZXkiOiIzNjMzODUvZGRhNWI4ZDctMzhjOC00YjNkLTk5OTEtZjAwZWY0OTA5OTU0L2NjMzI2NDljLThkMDUtNGY5OS1hYmJhLTZiMjA0OTY0OGE1ZS5wbmciLCJidWNrZXQiOiJ3aXJlc3RvY2staW1hZ2UtZ2VuZXJhdG9yLWN1c3RvbS1zdHlsZXMtcHJvZHVjdGlvbiIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NTEyLCJoZWlnaHQiOjUxMiwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50IjpmYWxzZX0sImpwZWciOnsicXVhbGl0eSI6ODB9fX0=?signature=706c6ece0cd594cd81511cc83b5288055327f8ef8f61a2ebbd9134cb388909f8);
+}
+
+
+.footer-bar {
+    background: linear-gradient(to right, skyblue, pink, skyblue);
+    /* Example gradient */
+    padding: 20px;
+    color: white;
+}
+
+.footer-flex .location-svg {
+    width: 20px;
+    height: 20px;
+}
+
+.socila-svg {
+    width: 30px;
+    height: 30px;
+}
+
+.socil-links-links {
+    display: flex;
+    gap: 1rem;
+
+
+}
+
+.socil-links-links li {
+    cursor: pointer;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: black;
+}
+
+.footer-logo-part,
+.our-services,
+.quick-links {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-logo-part {
+    font-size: 15px;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.our-services-header {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.our-services-header span {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.our-services ul,
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    color: black;
+
+}
+
+.our-services ul li,
+.quick-links ul li {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.Quick-links ul li {
+    font-size: 15px;
+}
+
+.Quick-links span {
+    position: relative;
+    display: inline-block;
+}
+
+.Quick-links span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 2px;
+    /* Adjust the thickness of the underline */
+    background-color: rgb(228, 28, 61);
+    /* Change the color if needed */
+    bottom: -4px;
+    /* Position the underline 30px below the span */
+}
+
+.our-services span {
+    position: relative;
+    display: inline-block;
+}
+
+.our-services span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 2px;
+    /* Adjust the thickness of the underline */
+    background-color: rgb(28, 168, 223);
+    /* Change the color if needed */
+    bottom: -4px;
+    /* Position the underline 30px below the span */
+}
+
+
+@media (max-width: 768px) {
+    .body-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .body-main-text {
+        margin-top: 0;
+        font-size: 2rem;
+
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .body-main-text h7 {
+        font-weight: 600;
+    }
+
+    .body-main-first-img {
+        display: none;
+    }
+
+    .body-main-img .first-img {
+        height: 100%;
+        width: 100%;
+        margin-top: 2.5rem;
+    }
+
+    .header-card-text h7 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .header-img-card {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: none;
+        align-items: center;
+        margin-top: -3rem;
+
+    }
+
+    .header-card-img .img-first {
+        height: 100%;
+        width: 100%;
+    }
+
+    .header-card-text {
+        width: 100%;
+        margin-top: 7rem;
+    }
+
+    .courses-header-left-left {
+        display: none;
+    }
+
+    .courses-header-right img {
+        width: 30px;
+        height: 30px;
+        padding: 3px;
+    }
+
+    .courses-header-text {
+        align-items: start;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .body-main-img .second-img {
+        width: 80%;
+        left: 7%;
+        height: 90%;
+        z-index: 1;
+        top: 6%;
+    }
+
+    .eight-img {
+        width: 113px;
+        top: 76%;
+        left: -2rem;
+    }
+
+    .six-img {
+        width: 100px;
+        left: 12px;
+    }
+
+    .body-main-button button {
+        padding: 5px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .header-card-img {
+        width: 100%;
+    }
+
+    .header-card-img .img-first {
+        margin-left: 0;
+        padding: 11px;
+    }
+
+    .provide-better-flex .flex-first-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .provide-better-text {
+        text-align: center;
+        font-size: 41px;
+        font-weight: 500;
+    }
+
+    .benefits-card-flex {
+        display: flex;
+        gap: 2rem;
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .benefits-card-card-text {
+        width: 100%;
+    }
+
+    .benefits-card-card img {
+        width: 100%;
+        padding-left: 1rem;
+        padding-top: 1rem;
+    }
+
+    .benefits h5 {
+        font-size: 26px;
+        font-weight: 500;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 3rem;
+    }
+
+    .pricing-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .client {
+        margin-top: 2rem;
+    }
+
+    .client-card-section {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .partner-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
